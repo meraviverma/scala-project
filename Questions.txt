@@ -3,7 +3,7 @@ Program 2: Given a set of number, count even no of element and odd number of ele
 print there sum individually.
 Example: 1,2,3,4,8,6
 Output: even: 4 sum: 20 odd:2 sum:4
-Program 3: Given a set of string sort them length wise.Eliminate duplicate string.
+Program 2: Given a set of string sort them length wise.Eliminate duplicate string.
 Program 4: Given a set of string sort them in Alphabetically order.Eleminate duplicate string.
 Program 5: Find the smallest and largest element in a set of string.
 Program 6: Find smallest and largest number in set of number.
