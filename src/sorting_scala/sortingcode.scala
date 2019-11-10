@@ -67,5 +67,77 @@ here is an example sort on the basis of the name attribute of the case class.*/
     val result = empList.sortWith((emp1,emp2) => sortBySalary(emp1,emp2))
     println(result)
     
+    //How to sort a Scala Array
+    println("####### Sorted Fruits #############")
+    val fruits = Array("cherry", "apple", "banana")
+    val sortedfruits=scala.util.Sorting.quickSort(fruits)
+    println(sortedfruits);
+    
+    //sort a sequence (Seq, List, Array, Vector) in Scala
+    val a = List(10, 5, 8, 1, 7).sorted
+    val b = List("banana", "pear", "apple", "orange").sorted
+    println(a+"----a and b sorted---"+b)
+    
+    //The “rich” versions of the numeric classes (like RichInt) and the StringOps 
+    //class all extend the Ordered trait, so they can be used with the sorted method.
+    
+    println(List(10, 5, 8, 1, 7).sortWith(_ < _))
+    println(List(10, 5, 8, 1, 7).sortWith(_ > _))
+    println(List("banana", "pear", "apple", "orange").sortWith(_ < _))
+    println(List("banana", "pear", "apple", "orange").sortWith(_ > _))
+    println(List("banana", "pear", "apple", "orange").sortWith(_.length < _.length))
+    println(List("banana", "pear", "apple", "orange").sortWith(_.length > _.length))
+    
+    //defining function
+    def sortByLength(s1: String, s2: String) = {
+      println("comparing %s and %s".format(s1, s2))
+      s1.length > s2.length
+    }
+    
+    println(List("banana", "pear", "apple").sortWith(sortByLength))
+    
+    
+    class Person (var name: String) {
+    override def toString = name
+    }
+    val ty = new Person("Tyler")
+    val al = new Person("Al")
+    val paul = new Person("Paul")
+    val dudes = List(ty, al, paul)
+    
+    println(dudes.sortWith(_.name < _.name))
+    println(dudes.sortWith(_.name > _.name))
+    
+    //Person class with the sorted method, just mix the Ordered trait into the Person class, 
+    //and implement a compare method
+    
+    class Person1(var name:String)extends Ordered[Person1]{
+      override def toString = name
+      // return 0 if the same; negative if this < that; positive if this > that
+    def compare (that: Person1) = {
+        if (this.name == that.name)
+            0
+        else if (this.name > that.name)
+            1
+        else
+          -1
+    }
+    }
+    
+    
   }
 }
+
+//OUTPUT
+/*List(1, 3, 12, 78, 90, 121, 121)
+List(121, 121, 90, 78, 12, 3, 1)
+List(Emp(2,james,12000.0), Emp(1,michael,12000.0), Emp(3,shaun,12000.0))
+List(Emp1(1,james,12000.0), Emp1(3,michael,10000.0), Emp1(4,michael,11000.0), Emp1(5,michael,15000.0), Emp1(2,shaun,13000.0))
+List(Emp1(3,michael,10000.0), Emp1(4,michael,11000.0), Emp1(1,james,12000.0), Emp1(2,shaun,13000.0), Emp1(5,michael,15000.0))
+List((c,10), (a,20), (b,30))
+List((a,20), (b,30), (c,10))
+####### sortWith ##############
+List(Emp(1,michael,12000.0), Emp(2,james,12000.0), Emp(3,shaun,12000.0))
+####### Sort using our own function #############
+List(Emp(1,michael,12000.0), Emp(2,james,12000.0), Emp(3,shaun,12000.0))*/
+
