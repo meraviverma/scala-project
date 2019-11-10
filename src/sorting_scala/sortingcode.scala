@@ -139,5 +139,24 @@ List((a,20), (b,30), (c,10))
 ####### sortWith ##############
 List(Emp(1,michael,12000.0), Emp(2,james,12000.0), Emp(3,shaun,12000.0))
 ####### Sort using our own function #############
-List(Emp(1,michael,12000.0), Emp(2,james,12000.0), Emp(3,shaun,12000.0))*/
+List(Emp(1,michael,12000.0), Emp(2,james,12000.0), Emp(3,shaun,12000.0))
+####### Sorted Fruits #############
+()
+List(1, 5, 7, 8, 10)----a and b sorted---List(apple, banana, orange, pear)
+List(1, 5, 7, 8, 10)
+List(10, 8, 7, 5, 1)
+List(apple, banana, orange, pear)
+List(pear, orange, banana, apple)
+List(pear, apple, banana, orange)
+List(banana, orange, apple, pear)
+comparing pear and banana
+comparing banana and pear
+comparing apple and pear
+comparing apple and pear
+comparing apple and banana
+comparing banana and apple
+List(banana, apple, pear)
+List(Al, Paul, Tyler)
+List(Tyler, Paul, Al)
+ * */
 
