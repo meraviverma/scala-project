@@ -1,0 +1,62 @@
+Scala for/yield examples (for-loop and yield examples)
+-------------------------------------------------------
+1)For each iteration of your for loop, yield generates a value which will be remembered.
+
+2)It's like the for loop has a buffer you can’t see, and for each iteration of your for loop 
+another item is added to that buffer.
+
+3)When your for loop finishes running, it will return this collection of all the yielded values.
+ 
+4)The type of the collection that is returned is the same type that you were iterating over, 
+so a Map yields a Map, a List yields a List, and so on.
+
+scala> for (i <- 1 to 5 ) yield i
+res1: IndexedSeq[Int] = Vector(1, 2, 3, 4, 5)
+
+scala> for(i <- 1 to 5)yield i * 2
+res3: IndexedSeq[Int] = Vector(2, 4, 6, 8, 10)
+
+scala> for(i <- 1 to 5) yield i % 2
+res4: IndexedSeq[Int] = Vector(1, 0, 1, 0, 1)
+
+scala> val a = Array(1,2,3,4,5)
+a: Array[Int] = Array(1, 2, 3, 4, 5)
+
+scala> for ( e <- a)yield e
+res5: Array[Int] = Array(1, 2, 3, 4, 5)
+
+scala> for ( e <- a)yield e * 2
+res6: Array[Int] = Array(2, 4, 6, 8, 10)
+
+scala> for ( e <- a)yield e % 2
+res7: Array[Int] = Array(1, 0, 1, 0, 1)
+
+scala> for(e <- a if e > 2)yield e
+res8: Array[Int] = Array(3, 4, 5)
+
+scala> for(e <- a if e % 2 == 0)yield e
+res9: Array[Int] = Array(2, 4)
+
+scala> for(e <- a if e % 2 == 0 && e < 3)yield e
+res11: Array[Int] = Array(2)
+
+def scalaFiles = 
+    for {
+        file <- filesHere
+        if file.getName.endsWith(".scala")
+    } yield file
+ 
+ scala> val fruits = "apple" :: "banana" :: "orange" :: Nil
+fruits: List[String] = List(apple, banana, orange)
+
+scala> val out = for (e <- fruits) yield e.toUpperCase
+out: List[String] = List(APPLE, BANANA, ORANGE)
+   
+As a quick summary of the yield keyword:
+-------------------------------------------
+1) For each iteration of your for loop, yield generates a value 
+which is remembered by the for loop (behind the scenes, like a buffer).
+
+2)When your for loop finishes running, it returns a collection of all these yielded values.
+
+3)The type of the collection that is returned is the same type that you were iterating over.
