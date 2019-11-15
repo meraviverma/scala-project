@@ -34,6 +34,10 @@ object FibonacciGenerator {
     }
     fibonacigen(3)
     
-    
+    //fibonacci series return array
+    /*def fibonaccirecursion(args:Int):Array[Integer]={
+      var output= new Array(1,1)
+      output*/
+    //}
   }
 }
