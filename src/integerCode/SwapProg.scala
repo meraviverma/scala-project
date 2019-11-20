@@ -7,7 +7,7 @@ import scala.collection.mutable.ListBuffer
 object SwapProg {
   def main(agrs:Array[String]):Unit={
    
-    val elem=Array(1,2,3,4,5)
+    val elem=Array(1,2,3,4,5,6)
     var newelm= new ListBuffer[Int]()
     
     //increment loop by 2
