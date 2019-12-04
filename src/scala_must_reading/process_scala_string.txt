@@ -1,0 +1,39 @@
+How can I iterate through each character in a Scala String, performing an operation on each character as I traverse the string?
+ 
+ scala> val upper="hello , world".map(c=>c.toUpper)
+upper: String = HELLO , WORLD
+
+scala> val upper="hello , world".map(_.toUpper)
+upper: String = HELLO , WORLD
+
+scala> val upper="hello , world".filter(_!='l').map(_.toUpper)
+upper: String = HEO , WORD
+
+scala> for(c<-"hello")print(c)
+hello
+scala> for(c<-"hello")println(c)
+h
+e
+l
+l
+o
+
+scala> val upper=for(c<-"hello , world")yield c.toUpper
+upper: String = HELLO , WORLD
+
+scala> val result=for{
+     | c<-"hello world"
+     | if c!= 'l'
+     | }yield c.toUpper
+result: String = HEO WORD
+
+scala> "hello".foreach(println)
+h
+e
+l
+l
+o
+ 
+ Having used Scala for a few years now, I can say that using map is the most common Scala idiom for use cases like this. 
+ Using for/yield is also common when there are multiple lines of 
+ processing to perform, and in my experience, the foreach method isn’t used that often in Scala. 

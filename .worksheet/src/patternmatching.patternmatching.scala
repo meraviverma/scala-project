@@ -1,7 +1,21 @@
 package patternmatching
 import scala.util._
 object patternmatching {;import org.scalaide.worksheet.runtime.library.WorksheetSupport._; def main(args: Array[String])=$execute{;$skip(112); 
-  println("Welcome to the Scala worksheet");$skip(279); 
+  println("Welcome to the Scala worksheet");$skip(20); 
+  
+  val status=404;System.out.println("""status  : Int = """ + $show(status ));$skip(143); 
+  val msg=status match{
+  case 200=>"success"
+  case 500=>"Critiacl Error"
+  case s if(s == 404)=>"Not found error" //It's a pattern guard
+  };System.out.println("""msg  : String = """ + $show(msg ));$skip(19); 
+  
+  val day="MON";System.out.println("""day  : String = """ + $show(day ));$skip(104); 
+  val kind=day match{
+  case "MON"|"TUE"|"WED"|"THU"|"FRI"=>"Weekday"
+  case "SAT"|"SUN"=>"Weekend"
+  };System.out.println("""kind  : String = """ + $show(kind ));$skip(283); 
+  
   def matchIt(x:Any):Unit=x match{
   case 10				=> 	println("the number 10")
   case true			=>	println("truth")

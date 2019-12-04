@@ -2,6 +2,20 @@ package patternmatching
 import scala.util._
 object patternmatching {
   println("Welcome to the Scala worksheet")       //> Welcome to the Scala worksheet
+  
+  val status=404                                  //> status  : Int = 404
+  val msg=status match{
+  case 200=>"success"
+  case 500=>"Critiacl Error"
+  case s if(s == 404)=>"Not found error" //It's a pattern guard
+  }                                               //> msg  : String = Not found error
+  
+  val day="MON"                                   //> day  : String = MON
+  val kind=day match{
+  case "MON"|"TUE"|"WED"|"THU"|"FRI"=>"Weekday"
+  case "SAT"|"SUN"=>"Weekend"
+  }                                               //> kind  : String = Weekday
+  
   def matchIt(x:Any):Unit=x match{
   case 10				=> 	println("the number 10")
   case true			=>	println("truth")
