@@ -12,12 +12,31 @@ var age=0
 
 //some method
 override def toString=s"$firstname $lastname is $age years old"
-def printHome{println(s"HOME=$HOME")}
+def printSHome{println(s"HOME=$HOME")}
 def printFullName{println(this)}
 
-printHome
+printSHome
 printFullName
 println("Still in constructor")
+}
 
+abstract class Pet(name:String){
+	def speak():Unit=println("Yo")
+	def comeToCustomer():Unit
+}
+
+class Dog(name: String)extends Pet(name){
+override def speak()=println("woof")
+def comeToCustomer()=println("Here I Come")
+
+def main(args:Array[String]){
+	val d=new Dog("Rover")
+	println(d.speak)
+}
 
 }
+
+
+
+//class demo extends Dog{
+//def main(args:Array[String]){
