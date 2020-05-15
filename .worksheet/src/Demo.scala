@@ -12,3 +12,21 @@ lazy val l={
       9
      };System.out.println("""l: => Int = <lazy>""")}
 }
+
+class SomeClass {
+    def printFilename() = {
+        println(SomeClass.HiddenFilename)
+    }
+}
+
+object SomeClass {
+    private val HiddenFilename = "/tmp/foo.bar"
+}
+
+class Person(var name: String, var age: Int)
+
+object Person {
+    def unapply(p: Person): String = s"${p.name}, ${p.age}"
+}
+
+//var p = new Person("Lori", 29)
