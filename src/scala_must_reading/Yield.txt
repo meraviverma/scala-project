@@ -1,4 +1,4 @@
-Scala for/yield examples (for-loop and yield examples)
+cala for/yield examples (for-loop and yield examples)
 -------------------------------------------------------
 1)For each iteration of your for loop, yield generates a value which will be remembered.
 
